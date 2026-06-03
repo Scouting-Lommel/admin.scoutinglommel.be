@@ -118,6 +118,13 @@ build
 .strapi
 .strapi-updater.json
 
+############################
+# TypeScript
+############################
+
+dist/
+*.tsbuildinfo
+
 
 ############################
 # Generated types
