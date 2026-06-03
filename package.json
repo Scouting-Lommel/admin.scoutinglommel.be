@@ -11,14 +11,6 @@
   "engines": {
     "node": ">=20.0.0 <=24.x.x"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@apollo/protobufjs",
-      "@swc/core",
-      "core-js-pure",
-      "sharp"
-    ]
-  },
   "scripts": {
     "build": "strapi build",
     "dev": "strapi develop",
