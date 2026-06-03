@@ -36,7 +36,7 @@ module.exports = ({ env }) => ({
         'api::register-page.register-page',
         'api::rental-page.rental-page',
       ],
-      defaultContentType: 'api::article.article',
+      defaultContentTypes: ['api::article.article'],
       contentTypesNameFields: {
         'api::article.article': ['pageTitle'],
         'api::manual.manual': ['title'],
