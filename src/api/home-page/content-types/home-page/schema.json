@@ -28,6 +28,13 @@
         "content-blocks.divider",
         "content-blocks.events-block"
       ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }

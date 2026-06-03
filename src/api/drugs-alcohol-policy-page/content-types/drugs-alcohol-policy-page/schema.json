@@ -24,6 +24,13 @@
         "content-blocks.policy-block",
         "content-blocks.divider"
       ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
