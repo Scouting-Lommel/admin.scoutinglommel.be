@@ -1,11 +1,14 @@
 allowBuilds:
-  "@apollo/protobufjs": true
-  "@strapi/strapi": true
-  "@swc/core": true
-  "core-js": true
-  "core-js-pure": true
-  "esbuild": true
-  "sharp": true
+  esbuild: true
+
+onlyBuiltDependencies:
+  - "@apollo/protobufjs"
+  - "@strapi/strapi"
+  - "@swc/core"
+  - "core-js"
+  - "core-js-pure"
+  - "esbuild"
+  - "sharp"
 
 overrides:
   "@apollo/server": ^5.5.0
