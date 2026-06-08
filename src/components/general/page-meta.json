@@ -31,11 +31,6 @@
     "noIndex": {
       "type": "boolean",
       "default": false
-    },
-    "slug": {
-      "type": "string",
-      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-      "required": false
     }
   }
 }

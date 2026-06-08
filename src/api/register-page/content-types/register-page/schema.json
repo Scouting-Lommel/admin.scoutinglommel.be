@@ -23,6 +23,14 @@
         "content-blocks.hero-block",
         "content-blocks.divider"
       ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
