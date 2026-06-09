@@ -50,6 +50,39 @@ Errors will be collected in a [Sentry](https://www.sentry.com) dashboard.
 
 To be determined.
 
+## CI/CD Pipeline
+
+A GitHub Actions workflow is configured in `.github/workflows/ci.yml` to run on every push to `main` and on every pull request.
+
+**Build steps:**
+1. Check out the repository
+2. Install pnpm 11.5.0
+3. Set up Node.js 22
+4. Install dependencies (`pnpm install --frozen-lockfile`)
+5. Build the project (`pnpm build`)
+
+**Required build secrets:**
+The CI pipeline requires environment variables for the build. See the workflow file for the exact list.
+
+## Docker & Build Configuration
+
+### pnpm Workspace
+
+The project uses `pnpm-workspace.yaml` to configure pnpm-specific settings:
+
+- **allowBuilds**: Allows postinstall builds for native dependencies like `@swc/core`, `sharp`, `esbuild`
+- **overrides**: Pins specific dependency versions for compatibility
+
+This file must be included in the Docker build context alongside `package.json` and `pnpm-lock.yaml`.
+
+### Security Headers (CSP)
+
+The application configures custom Content Security Policy headers in `config/middlewares.js` to support:
+
+- [Cloudinary](https://cloudinary.com) for image uploads
+- [Google Maps](https://maps.google.com) for the maps plugin
+- [Strapi](https://strapi.io) market assets
+
 ## Environments
 
 This project consists of different environments, all of which having a different purpose.

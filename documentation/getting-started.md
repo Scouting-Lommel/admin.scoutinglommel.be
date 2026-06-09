@@ -84,6 +84,45 @@ For more info, check out the [deployment docs](/documentation/deployment.md).
 
 Instead of the traditional git-flow, this project is based on the [trunk based development](https://trunkbaseddevelopment.com/) principle.
 
+## Environment Variables
+
+The application requires the following environment variables to be set in the `.env` file:
+
+### Required Variables
+
+| Variable | Description | Example |
+| :------- | :---------- | :------ |
+| `APP_ENV` | Environment name (development/staging/production) | `development` |
+| `APP_KEYS` | Secret keys for application security | `key1,key2,key3,key4` |
+| `DB_HOST` | MySQL database host | `localhost` |
+| `DB_PORT` | MySQL database port | `3306` |
+| `DB_NAME` | MySQL database name | `scouting_lommel` |
+| `DB_USERNAME` | MySQL database user | `strapi` |
+| `DB_PASSWORD` | MySQL database password | `secret` |
+| `JWT_SECRET` | Secret for JWT token generation | `secret` |
+| `ADMIN_JWT_SECRET` | Secret for admin JWT tokens | `secret` |
+| `API_TOKEN_SALT` | Salt for API tokens | `salt` |
+| `TRANSFER_TOKEN_SALT` | Salt for data transfer tokens | `salt` |
+| `ENCRYPTION_KEY` | Key for encryption operations | `key` |
+
+### Cloudinary Variables (Optional)
+
+| Variable | Description | Example |
+| :------- | :---------- | :------ |
+| `CLOUDINARY_NAME` | Cloudinary cloud name | `scoutinglommel` |
+| `CLOUDINARY_KEY` | Cloudinary API key | `123456789` |
+| `CLOUDINARY_SECRET` | Cloudinary API secret | `secret` |
+
+## TypeScript
+
+This project is written in TypeScript. All source files in `src/` and `config/` use the `.ts` extension. The TypeScript configuration is defined in `tsconfig.json` with the following key settings:
+
+- **Module**: NodeNext
+- **Target**: ES2020
+- **Strict mode**: Disabled (for migration compatibility)
+
+When adding new API modules, use `.ts` files for controllers, services, and routes.
+
 ## Endpoints
 
 | Name                   | Description                                    | Endpoint                                                       |
