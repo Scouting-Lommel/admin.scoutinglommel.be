@@ -14,8 +14,8 @@
 
 ## Requirements
 
-- [Node.js](https://nodejs.org) (v18.14.0)
-- [NPM](https://npmjs.com) (v6 and up)
+- [Node.js](https://nodejs.org) (>=20.0.0 <=24.x.x)
+- [pnpm](https://pnpm.io) (v11.5.0 or compatible)
 - [NVM](https://github.com/nvm-sh/nvm) (optional but recommended)
 - [MySQL](https://www.mysql.com) database (hosted, local or [Docker](https://www.docker.com/))
 
@@ -45,7 +45,7 @@
 5. Install dependencies
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 ## Running locally
@@ -54,7 +54,7 @@
 2. Start the development server using
 
    ```bash
-   npm run develop
+   pnpm dev
    ```
 
 3. You can now visit the CMS admin panel on [port 1337](http://localhost:1337).
@@ -64,10 +64,10 @@
 ### Local build
 
 1. [Clone and install](#installation) this repo
-2. Produce a production build using `npm`
+2. Produce a production build using `pnpm`
 
    ```bash
-   npm run build
+   pnpm build
    ```
 
 ### Production build

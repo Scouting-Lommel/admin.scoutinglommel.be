@@ -1,7 +1,5 @@
 # Deployment
 
-TODO: write deployment manual
-
 ## Table of contents
 
 - [Resource providers](#resource-providers)
@@ -18,7 +16,7 @@ TODO: write deployment manual
 | :------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------- |
 | DNS            | [Cloudflare](https://cloudflare.com/) DNS management      | DNS management DDoS protection.                                                  |
 | Frontend app   | Hosting on [Vercel](https://www.vercel.app)               | Dynamic hosting with CI/CD capabilities for FE app.                              |
-| Backend CMS    | Hosting on [Heroku](https://www.heroku.com)               | Dynamic hosting with CI/CD capabilities for BE CMS.                              |
+| Backend CMS    | Hosting on [Coolify](https://coolify.io)                   | Self-hosted Docker deployment with CI/CD capabilities.                           |
 | Database       | MySQL database hosted on [Vimexx](https://www.vimexx.be/) | Both the development and production environments have a separate MySQL database. |
 | Error tracking | [Sentry](https://www.sentry.com)                          | Error tracking in a Sentry dashboard.                                            |
 | E-mail setup   | To be determined                                          | Check out the [e-mail setup docs](/documentation/e-mail-setup.md).               |
@@ -33,7 +31,16 @@ The website's frontend is a NextJS application and is hosted on [Vercel](https:/
 
 ### Backend hosting
 
-The website's backend CMS is a [Strapi](https://www.strapi.io) instance and is hosted on [Heroku](https://www.heroku.com). A CI/CD pipeline has been set up for automatic deployment when pushing changes and/or features to the `main` branch.
+The website's backend CMS is a [Strapi](https://www.strapi.io) instance and is hosted on [Coolify](https://coolify.io). The deployment is containerized using Docker and automatically deploys when changes are pushed to the `main` branch.
+
+#### Docker setup
+
+The project uses a multi-stage Dockerfile:
+
+- **Builder stage**: Installs dependencies using `pnpm` and builds the Strapi admin panel
+- **Runner stage**: Copies the built application and runs it in production mode
+
+Base image: `node:22-alpine` (required for pnpm 11.5.0 compatibility)
 
 ### Error tracking
 
