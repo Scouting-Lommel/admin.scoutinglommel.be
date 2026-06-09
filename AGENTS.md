@@ -19,9 +19,10 @@ Scouting Lommel website backend — Strapi v5 CMS with MySQL, deployed on Heroku
 │   ├── api/          # 25 content-type modules ← MAIN CODE
 │   ├── components/   # 29 reusable component schemas
 │   ├── extensions/   # Plugin overrides (users-permissions)
-│   └── index.js      # Bootstrap file (empty)
+│   └── index.ts      # Bootstrap file (empty)
 ├── .github/workflows/  # CI pipeline
 ├── package.json
+├── tsconfig.json     # TypeScript configuration
 └── README.md
 ```
 
@@ -30,11 +31,11 @@ Scouting Lommel website backend — Strapi v5 CMS with MySQL, deployed on Heroku
 |------|----------|-------|
 | Content model (what data exists) | `src/api/*/content-types/*/schema.json` | 25 types |
 | Page structure (dynamic zones) | `src/components/content-blocks/` | 16 block types |
-| Admin customization | `src/admin/app.js` | Locales, bootstrap |
-| Plugin config | `config/plugins.js` | Cloudinary + Google Maps |
-| Security/CSP headers | `config/middlewares.js` | Custom CSP for external services |
+| Admin customization | `src/admin/app.ts` | Locales, bootstrap |
+| Plugin config | `config/plugins.ts` | Cloudinary + Google Maps |
+| Security/CSP headers | `config/middlewares.ts` | Custom CSP for external services |
 | User schema extension | `src/extensions/users-permissions/` | Leader relation added |
-| CI/CD | `.github/workflows/ci.yml` | pnpm, Node 20 |
+| CI/CD | `.github/workflows/ci.yml` | pnpm, Node 22 |
 
 ## CONVENTIONS
 - All controllers/services/routes use Strapi v5 `factories` boilerplate (no custom logic)
@@ -44,6 +45,7 @@ Scouting Lommel website backend — Strapi v5 CMS with MySQL, deployed on Heroku
 - Dutch-only admin locale (`nl`)
 - pnpm package manager, frozen lockfile in CI
 - Node >=20.0.0 <=24.x.x
+- TypeScript for all source files (src/, config/)
 
 ## ANTI-PATTERNS (THIS PROJECT)
 - No custom controllers/services beyond factory boilerplate — all business logic is in the frontend

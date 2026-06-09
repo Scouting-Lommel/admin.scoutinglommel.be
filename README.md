@@ -25,7 +25,7 @@ Don't understand a word or term? Look it up in the [glossary](/documentation/glo
 ## Installation
 
 ```bash
-npm install
+pnpm install
 ```
 
 For detailed instructions and requirements, check out the [getting started docs](/documentation/getting-started.md).
@@ -33,7 +33,7 @@ For detailed instructions and requirements, check out the [getting started docs]
 ## Running locally
 
 ```bash
-npm run develop
+pnpm dev
 ```
 
 For detailed instructions, check out the [getting started docs](/documentation/getting-started.md#running-locally).
@@ -44,7 +44,7 @@ For detailed instructions, check out the [getting started docs](/documentation/g
 | :------------- | :------------------------------------------------------- | :-------------------------------------------------------- |
 | DNS            | [Cloudflare](https://www.cloudflare.com/) DNS management | DNS management with Cloudflare routing & DDoS protection. |
 | Frontend app   | Hosting on [Vercel](https://www.vercel.com)              | Dynamic hosting with CI/CD capabilities for FE app.       |
-| Backend CMS    | Hosting on [Heroku](https://www.heroku.com)              | Dynamic hosting with CI/CD capabilities for BE CMS.       |
+| Backend CMS    | Hosting on [Coolify](https://coolify.io)                 | Self-hosted Docker deployment with CI/CD.               |
 | Error tracking | [Sentry](https://www.sentry.com)                         | Error tracking in a Sentry dashboard.                     |
 
 For a detailed view and instructions, check out the [deployment docs](/documentation/deployment.md).
