@@ -52,6 +52,16 @@
       "relation": "oneToOne",
       "target": "api::year-theme.year-theme"
     },
+    "mainNavigation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.navigation-item"
+    },
+    "footerNavigation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.footer-nav"
+    },
     "siteDescription": {
       "type": "text"
     },
