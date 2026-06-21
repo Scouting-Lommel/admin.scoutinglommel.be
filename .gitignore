@@ -70,8 +70,7 @@ $RECYCLE.BIN/
 *.sql
 *.sqlite
 *.sqlite3
-database/dumps
-database/generate-migration.js
+*.dmp
 
 
 ############################
@@ -82,7 +81,6 @@ database/generate-migration.js
 ssl
 .idea
 nbproject
-.sisyphus
 public/uploads/*
 !public/uploads/.gitkeep
 
@@ -140,3 +138,11 @@ docker-compose.yml
 ############################
 
 .cursor/*
+
+
+############################
+# Opencode
+############################
+
+.omo
+.sisyphus
