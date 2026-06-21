@@ -44,4 +44,4 @@ jobs:
           curl -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
             -H "x-coolify-webhook-secret: ${{ secrets.COOLIFY_WEBHOOK_SECRET }}" \
-            -d '{"event": "push", "branch": "main"}'
+            -d '{"ref": "refs/heads/main", "repository": {"clone_url": "https://github.com/${{ github.repository }}.git"}}'
