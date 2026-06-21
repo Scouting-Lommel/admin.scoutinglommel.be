@@ -94,5 +94,10 @@ module.exports = ({ env }) => ({
   },
   graphql: {
     enabled: true,
+    config: {
+      apolloServer: {
+        introspection: ['development', 'staging'].includes(env('NODE_ENV')),
+      },
+    },
   },
 });
