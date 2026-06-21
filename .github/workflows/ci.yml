@@ -2,7 +2,6 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main]
   pull_request:
 
 jobs:
@@ -35,13 +34,13 @@ jobs:
 
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
       - name: Deploy to Coolify
         run: |
-          curl -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
+          response=$(curl -s -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
             -H "X-GitHub-Event: push" \
             -H "x-coolify-webhook-secret: ${{ secrets.COOLIFY_WEBHOOK_SECRET }}" \
@@ -58,4 +57,9 @@ jobs:
                   "modified": ["."]
                 }
               ]
-            }'
+            }')
+          echo "$response"
+          if echo "$response" | grep -q '"status":"failed"'; then
+            echo "Deployment failed"
+            exit 1
+          fi
