@@ -1,4 +1,4 @@
-name: Build check
+name: Build and deploy
 
 on:
   push:
@@ -32,3 +32,16 @@ jobs:
           TRANSFER_TOKEN_SALT: ci-build-transfer
           ENCRYPTION_KEY: ci-build-encryption
           JWT_SECRET: ci-build-jwt
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Coolify
+        run: |
+          curl -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -H "x-coolify-webhook-secret: ${{ secrets.COOLIFY_WEBHOOK_SECRET }}" \
+            -d '{"event": "push", "branch": "main"}'
