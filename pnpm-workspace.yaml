@@ -17,3 +17,6 @@ overrides:
   lodash: ^4.18.0
   vite: ^6.4.2
   ws: ^8.20.1
+
+patchedDependencies:
+  '@strapi/core': patches/@strapi__core.patch
