@@ -1,0 +1,40 @@
+diff --git a/dist/services/document-service/transform/id-map.js b/dist/services/document-service/transform/id-map.js
+index 3e70e18b931961f45cbc6ecce83c5d8fce277f39..c1a02aee761a11d5f9067a4b53d8d51a0e58b5f8 100644
+--- a/dist/services/document-service/transform/id-map.js
++++ b/dist/services/document-service/transform/id-map.js
+@@ -67,7 +67,7 @@ const hasDraftAndPublish = (uid)=>{
+                 };
+             }, {});
+             // 2. Query ids
+-            await strapiUtils.async.map(Object.values(idsByUidAndLocale), async ({ uid, locale, documentIds, status })=>{
++            await strapiUtils.async.map(Object.values(idsByUidAndLocale), async ({ uid, locale: requestedLocale, documentIds, status })=>{
+                 const findParams = {
+                     select: [
+                         'id',
+@@ -78,10 +78,15 @@ const hasDraftAndPublish = (uid)=>{
+                     where: {
+                         documentId: {
+                             $in: documentIds
+-                        },
+-                        locale: locale || null
++                        }
+                     }
+                 };
++                // Non-localized content types store the default locale in the DB even though
++                // their pluginOptions don't enable i18n. Omitting the locale filter lets the
++                // lookup find those records instead of searching for locale IS NULL.
++                if (requestedLocale !== null) {
++                    findParams.where.locale = requestedLocale;
++                }
+                 if (hasDraftAndPublish(uid)) {
+                     findParams.where.publishedAt = status === 'draft' ? null : {
+                         $ne: null
+@@ -93,7 +98,7 @@ const hasDraftAndPublish = (uid)=>{
+                     const key = encodeKey({
+                         documentId,
+                         uid,
+-                        locale,
++                        locale: requestedLocale === null ? null : locale,
+                         status: publishedAt ? 'published' : 'draft'
+                     });
+                     loadedIds.set(key, id);
