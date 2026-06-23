@@ -3,7 +3,7 @@
  * Runs when both firstName and lastName are present in the payload.
  */
 
-const generateSlug = (firstName: string, lastName: string): string => {
+const generateSlug = (firstName, lastName) => {
   const raw = `${firstName}-${lastName}`;
 
   return raw
@@ -14,16 +14,18 @@ const generateSlug = (firstName: string, lastName: string): string => {
     .replace(/^-+|-+$/g, "");
 };
 
-const setSlugFromNames = (data: Record<string, unknown>) => {
-  const firstName = typeof data.firstName === "string" ? data.firstName.trim() : "";
-  const lastName = typeof data.lastName === "string" ? data.lastName.trim() : "";
+const setSlugFromNames = (data) => {
+  const firstName =
+    typeof data.firstName === "string" ? data.firstName.trim() : "";
+  const lastName =
+    typeof data.lastName === "string" ? data.lastName.trim() : "";
 
   if (firstName && lastName) {
     data.slug = generateSlug(firstName, lastName);
   }
 };
 
-export default {
+module.exports = {
   async beforeCreate(event) {
     setSlugFromNames(event.params.data);
   },
