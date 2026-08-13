@@ -42,10 +42,9 @@
       "type": "string"
     },
     "contactItems": {
-      "displayName": "ContactItem",
       "type": "component",
-      "repeatable": true,
-      "component": "general.contact-item"
+      "component": "general.contact-item",
+      "repeatable": true
     },
     "yearTheme": {
       "type": "relation",
@@ -78,10 +77,13 @@
       "type": "decimal"
     },
     "globalAlert": {
-      "displayName": "GlobalAlert",
       "type": "component",
-      "repeatable": false,
-      "component": "general.global-alert"
+      "component": "general.global-alert",
+      "repeatable": false
+    },
+    "maintenanceMode": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
