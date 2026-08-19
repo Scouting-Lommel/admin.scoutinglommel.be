@@ -9,7 +9,7 @@
   },
   "packageManager": "pnpm@11.8.0",
   "engines": {
-    "node": ">=20.0.0 <=24.x.x"
+    "node": ">=20.0.0 <=26.x.x"
   },
   "scripts": {
     "build": "strapi build",
