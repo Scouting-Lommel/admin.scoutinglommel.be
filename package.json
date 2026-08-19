@@ -23,12 +23,12 @@
     "@strapi/plugin-users-permissions": "^5.52.0",
     "@strapi/provider-upload-cloudinary": "^5.52.0",
     "@strapi/strapi": "^5.52.0",
-    "mysql2": "^3.22.5",
+    "mysql2": "^3.23.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^7.18.0",
+    "react-router-dom": "^7.18.2",
     "strapi-plugin-navigation": "^3.3.7",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.5.3"
   },
   "strapi": {
     "uuid": "b7ca386d-29d3-4bee-a89d-bcc53a30cb7e"
