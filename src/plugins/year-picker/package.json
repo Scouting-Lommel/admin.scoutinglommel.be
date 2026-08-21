@@ -1,0 +1,10 @@
+{
+  "name": "year-picker",
+  "version": "1.0.0",
+  "description": "Year picker custom field for Strapi",
+  "strapi": {
+    "name": "year-picker",
+    "kind": "plugin"
+  },
+  "dependencies": {}
+}

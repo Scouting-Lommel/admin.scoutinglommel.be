@@ -1,0 +1,7 @@
+{
+  "year-picker.year-picker.label": "Jaarkiezer",
+  "year-picker.year-picker.description": "Selecteer een jaar uit een dropdown",
+  "year-picker.year-picker.settings.range": "Jaarbereik",
+  "year-picker.year-picker.min-year.label": "Minimum jaar",
+  "year-picker.year-picker.max-year.label": "Maximum jaar"
+}

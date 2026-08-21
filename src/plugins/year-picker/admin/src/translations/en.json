@@ -1,0 +1,7 @@
+{
+  "year-picker.year-picker.label": "Year Picker",
+  "year-picker.year-picker.description": "Select a year from a dropdown",
+  "year-picker.year-picker.settings.range": "Year Range",
+  "year-picker.year-picker.min-year.label": "Minimum Year",
+  "year-picker.year-picker.max-year.label": "Maximum Year"
+}

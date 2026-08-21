@@ -22,8 +22,8 @@
     },
     "active": {
       "type": "boolean",
-      "default": true,
-      "required": true
+      "required": true,
+      "default": true
     },
     "image": {
       "type": "media",
@@ -53,6 +53,53 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "leader"
+    },
+    "memberSince": {
+      "type": "customField",
+      "customField": "plugin::year-picker.year-picker"
+    },
+    "leaderSince": {
+      "type": "customField",
+      "customField": "plugin::year-picker.year-picker"
+    },
+    "totem": {
+      "type": "string"
+    },
+    "isStudent": {
+      "type": "boolean",
+      "default": false
+    },
+    "occupation": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "isStudent"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "dateOfBirth": {
+      "type": "date"
+    },
+    "bio": {
+      "type": "text"
+    },
+    "fieldOfStudy": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isStudent"
+            },
+            true
+          ]
+        }
+      }
     }
   }
 }

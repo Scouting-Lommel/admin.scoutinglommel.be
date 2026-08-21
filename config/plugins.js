@@ -100,4 +100,8 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  "year-picker": {
+    enabled: true,
+    resolve: "./src/plugins/year-picker",
+  },
 });
