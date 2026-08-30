@@ -17,6 +17,7 @@
 | DNS            | [Cloudflare](https://cloudflare.com/) DNS management      | DNS management DDoS protection.                                                  |
 | Frontend app   | Hosting on [Vercel](https://www.vercel.app)               | Dynamic hosting with CI/CD capabilities for FE app.                              |
 | Backend CMS    | Hosting on [Coolify](https://coolify.io)                   | Self-hosted Docker deployment with CI/CD capabilities.                           |
+| Server         | [Hetzner](https://www.hetzner.com/)                       | Hosts the Coolify instance.                                                      |
 | Database       | MySQL database hosted on [Vimexx](https://www.vimexx.be/) | Both the development and production environments have a separate MySQL database. |
 | Error tracking | [Sentry](https://www.sentry.com)                          | Error tracking in a Sentry dashboard.                                            |
 | E-mail setup   | To be determined                                          | Check out the [e-mail setup docs](/documentation/e-mail-setup.md).               |
@@ -41,6 +42,23 @@ The project uses a multi-stage Dockerfile:
 - **Runner stage**: Copies the built application and runs it in production mode
 
 Base image: `node:22-alpine` (required for pnpm 11.5.0 compatibility)
+
+#### Server
+
+The Coolify instance and all its containers run on a single server at [Hetzner](https://www.hetzner.com/).
+
+| Item     | Detail                                                         |
+| :------- | :------------------------------------------------------------- |
+| Provider | [Hetzner](https://www.hetzner.com/)                            |
+| IPv4     | One paid IPv4 address (€0.50/month) for public subdomains and SSH |
+| SSH      | Direct SSH access on the public IPv4                           |
+
+> **Decision (2026-08-30): keep the paid IPv4.** Replacing it with a free
+> alternative (Tailscale Funnel or Cloudflare Tunnel) was evaluated and
+> rejected: €6/year is negligible compared to the migration effort and the
+> added dependency (a tunnel is a single point of failure). The current
+> setup — public subdomains, direct SSH, automated certificates — keeps
+> working without maintenance.
 
 ### Error tracking
 
