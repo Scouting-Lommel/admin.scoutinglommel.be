@@ -45,6 +45,7 @@ For detailed instructions, check out the [getting started docs](/documentation/g
 | DNS            | [Cloudflare](https://www.cloudflare.com/) DNS management | DNS management with Cloudflare routing & DDoS protection. |
 | Frontend app   | Hosting on [Vercel](https://www.vercel.com)              | Dynamic hosting with CI/CD capabilities for FE app.       |
 | Backend CMS    | Hosting on [Coolify](https://coolify.io)                 | Self-hosted Docker deployment with CI/CD.               |
+| Server         | [Hetzner](https://www.hetzner.com/)                      | Hosts the Coolify instance.                              |
 | Error tracking | [Sentry](https://www.sentry.com)                         | Error tracking in a Sentry dashboard.                     |
 
 For a detailed view and instructions, check out the [deployment docs](/documentation/deployment.md).
