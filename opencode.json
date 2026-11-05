@@ -1,0 +1,34 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "strapi": {
+        "type": "remote",
+        "url": "http://localhost:1337/mcp",
+        "oauth": false,
+        "disabled": true,
+        "headers": {
+          "Authorization": "Bearer {env:STRAPI_ADMIN_TOKEN}"
+        }
+      },
+      "strapi_staging": {
+        "type": "remote",
+        "url": "https://staging.admin.scoutinglommel.be/mcp",
+        "oauth": false,
+        "disabled": true,
+        "headers": {
+          "Authorization": "Bearer {env:STRAPI_STAGING_ADMIN_TOKEN}"
+        }
+      },
+      "strapi_prod": {
+        "type": "remote",
+        "url": "https://admin.scoutinglommel.be/mcp",
+        "oauth": false,
+        "disabled": true,
+        "headers": {
+          "Authorization": "Bearer {env:STRAPI_PROD_ADMIN_TOKEN}"
+        }
+      }
+    }
+  }
+}
