@@ -36,6 +36,7 @@ Scouting Lommel website backend — Strapi v5 CMS with MySQL, deployed on Heroku
 | Security/CSP headers | `config/middlewares.ts` | Custom CSP for external services |
 | User schema extension | `src/extensions/users-permissions/` | Leader relation added |
 | CI/CD | `.github/workflows/ci.yml` | pnpm, Node 22 |
+| MCP server (AI clients) | `config/server.js`, `documentation/mcp.md` | Off by default; needs `MCP_ENABLED=true` + an Admin token |
 
 ## CONVENTIONS
 - All controllers/services/routes use Strapi v5 `factories` boilerplate (no custom logic)

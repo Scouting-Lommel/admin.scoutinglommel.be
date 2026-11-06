@@ -9,6 +9,7 @@ Backend to the new and refreshed [Scouting Lommel website](https://www.scoutingl
 - [Installation](#installation)
 - [Running locally](#running-locally)
 - [Deployment](#deployment)
+- [MCP server](#mcp-server)
 
 ## Tech stack
 
@@ -49,3 +50,15 @@ For detailed instructions, check out the [getting started docs](/documentation/g
 | Error tracking | [Sentry](https://www.sentry.com)                         | Error tracking in a Sentry dashboard.                     |
 
 For a detailed view and instructions, check out the [deployment docs](/documentation/deployment.md).
+
+## MCP server
+
+Strapi's built-in [Model Context Protocol](https://modelcontextprotocol.io) server lets AI clients (OpenCode, Claude Code, Cursor) read content — and write it, if the token allows — without an admin-panel login. It is disabled by default and enabled per environment with `MCP_ENABLED=true`:
+
+```bash
+MCP_ENABLED=true pnpm dev
+```
+
+Access requires a scoped **Admin token** (Settings → Administration Panel → Admin Tokens). Content API tokens do not work.
+
+For setup, token creation, client config, available tools and limitations, check out the [MCP docs](/documentation/mcp.md).
