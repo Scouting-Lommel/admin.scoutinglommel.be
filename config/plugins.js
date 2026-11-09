@@ -104,4 +104,25 @@ module.exports = ({ env }) => ({
     enabled: true,
     resolve: "./src/plugins/year-picker",
   },
+  // Admin transactional mail (password resets) goes through Google Workspace
+  // SMTP. Gmail rejects a From header that is not the authenticated mailbox or
+  // a verified alias, so EMAIL_FROM must match SMTP_USERNAME.
+  email: {
+    config: {
+      provider: "nodemailer",
+      providerOptions: {
+        host: env("SMTP_HOST", "smtp.gmail.com"),
+        port: env.int("SMTP_PORT", 465),
+        secure: env.bool("SMTP_SECURE", true),
+        auth: {
+          user: env("SMTP_USERNAME"),
+          pass: env("SMTP_PASSWORD"),
+        },
+      },
+      settings: {
+        defaultFrom: env("EMAIL_FROM", env("SMTP_USERNAME")),
+        defaultReplyTo: env("EMAIL_REPLY_TO", env("EMAIL_FROM", env("SMTP_USERNAME"))),
+      },
+    },
+  },
 });
