@@ -63,6 +63,10 @@ The app password is revoked whenever the account password changes; rotate it the
 
 ## Sender identity
 
+The chosen sender is **`noreply@scoutinglommel.be`**, added as an alternate email (alias) on the
+authenticated mailbox. No separate subdomain: a subdomain would need its own secondary-domain
+verification, MX, SPF and DKIM records, and would carry a young-domain reputation.
+
 `EMAIL_FROM` must equal `SMTP_USERNAME` or a verified "Send mail as" alias on that mailbox.
 Otherwise Gmail rewrites the `From:` header and DMARC alignment breaks.
 
